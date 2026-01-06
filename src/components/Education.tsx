@@ -8,22 +8,45 @@ const Education = () => {
           Education
         </h2>
 
-        <div className="bg-navy-light p-8 rounded-lg card-hover">
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-green-tint rounded-lg">
-              <GraduationCap className="w-8 h-8 text-primary" />
+        <div className="space-y-6">
+          <div className="bg-navy-light p-8 rounded-lg card-hover">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-green-tint rounded-lg">
+                <GraduationCap className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-slate-lightest mb-1">
+                  Bachelor of Computer Science
+                </h3>
+                <p className="text-primary font-medium mb-2">
+                  Rana University, Kabul
+                </p>
+                <div className="flex flex-wrap gap-4 text-slate font-mono text-sm">
+                  <span>2022 – Present</span>
+                  <span className="text-primary">|</span>
+                  <span>GPA: 3.83 / 4.0</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold text-slate-lightest mb-1">
-                Bachelor of Science in Computer Science
-              </h3>
-              <p className="text-primary font-medium mb-2">
-                Rana University, Kabul
-              </p>
-              <div className="flex flex-wrap gap-4 text-slate font-mono text-sm">
-                <span>2022 – Present</span>
-                <span className="text-primary">|</span>
-                <span>GPA: 3.6 / 4.0</span>
+          </div>
+
+          <div className="bg-navy-light p-8 rounded-lg card-hover">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-green-tint rounded-lg">
+                <GraduationCap className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-slate-lightest mb-1">
+                  High School Diploma
+                </h3>
+                <p className="text-primary font-medium mb-2">
+                  Habibia High School, Kabul
+                </p>
+                <div className="flex flex-wrap gap-4 text-slate font-mono text-sm">
+                  <span>2021</span>
+                  <span className="text-primary">|</span>
+                  <span>GPA: 3.2 / 4.0</span>
+                </div>
               </div>
             </div>
           </div>

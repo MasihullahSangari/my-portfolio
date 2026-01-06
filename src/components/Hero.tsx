@@ -6,15 +6,15 @@ const Hero = () => {
           Hi, my name is
         </p>
         <h1 className="big-heading mb-3 fade-up fade-up-delay-2">
-          Omer Ahmadzai.
+          Masihullah Sangari.
         </h1>
         <h2 className="medium-heading text-slate mb-6 fade-up fade-up-delay-3">
           I build scalable web applications.
         </h2>
         <p className="paragraph max-w-xl mb-12 fade-up fade-up-delay-4">
-          I'm a Full Stack Web Developer and Computer Science undergraduate with 2+ years of experience 
-          building responsive, secure, and scalable web applications using modern web technologies. 
-          I focus on creating accessible, human-centered digital experiences.
+          I'm a Full Stack Web Developer with 1+ year of hands-on experience in designing, 
+          developing, and deploying scalable and responsive web applications using modern 
+          technologies. I focus on creating clean, maintainable, and high-performance code.
         </p>
         <div className="fade-up fade-up-delay-5">
           <a
