@@ -7,11 +7,11 @@ const technologies = [
   'Node.js',
   'Express.js',
   'MySQL',
-  'Laravel',
   'Git & GitHub',
+  'RESTful APIs',
 ];
 
-import omerPhoto from '@/assets/omer.jpg';
+import profilePhoto from '@/assets/profile.jpg';
 
 const About = () => {
   return (
@@ -25,19 +25,20 @@ const About = () => {
           {/* Text content */}
           <div className="md:col-span-2 space-y-4">
             <p className="paragraph">
-              Hello! My name is Omer and I enjoy building things that live on the internet. 
-              My interest in web development started during my early studies and grew rapidly 
-              as I began building real-world projects using modern frontend and backend technologies.
+              Hello! My name is Masihullah and I enjoy building things that live on the internet. 
+              I started coding in school and have since evolved into a results-driven developer 
+              skilled in both frontend and backend technologies.
             </p>
             <p className="paragraph">
-              Fast-forward to today, I've had the opportunity to work on large-scale educational 
-              platforms, content-driven web applications, and library management systems, 
-              collaborating with teams and using Git-based workflows.
+              I've had the opportunity to work on full-stack projects including a responsive 
+              Online Library System with 100+ book summaries and an advanced School & Courses 
+              Management Dashboard. I continuously learn and apply modern development practices 
+              to deliver high-quality digital solutions.
             </p>
             <p className="paragraph">
               My main focus these days is building secure, scalable, and user-friendly full-stack 
               applications using{' '}
-              <span className="text-primary">React</span>,{' '}
+              <span className="text-primary">React.js</span>,{' '}
               <span className="text-primary">Node.js</span>, and modern UI frameworks.
             </p>
 
@@ -63,8 +64,8 @@ const About = () => {
             <div className="relative z-10 rounded overflow-hidden">
               <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-300 z-10" />
               <img
-                src={omerPhoto}
-                alt="Omer Ahmadzai"
+                src={profilePhoto}
+                alt="Masihullah Sangari"
                 className="w-full grayscale group-hover:grayscale-0 transition-all duration-300 object-cover"
               />
             </div>

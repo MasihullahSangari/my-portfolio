@@ -1,19 +1,19 @@
 const skillCategories = [
   {
     title: 'Frontend',
-    skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind', 'Bootstrap'],
+    skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Tailwind CSS'],
   },
   {
     title: 'Backend',
-    skills: ['Node.js', 'Express.js', 'Laravel', 'Python', 'MySQL', 'PostgreSQL'],
+    skills: ['Node.js', 'Express.js', 'MySQL', 'RESTful APIs'],
   },
   {
     title: 'Tools',
-    skills: ['Git', 'GitHub', 'Figma', 'REST APIs', 'Database Management'],
+    skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'Figma'],
   },
   {
     title: 'Soft Skills',
-    skills: ['Problem-solving', 'Team collaboration', 'Communication', 'Continuous learning'],
+    skills: ['Problem-solving', 'Communication', 'Time Management', 'Creativity', 'Eye for Detail'],
   },
 ];
 
