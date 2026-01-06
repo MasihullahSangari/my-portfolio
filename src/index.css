@@ -2,95 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Omer Ahmadzai Portfolio - Inspired by Brittany Chiang's design */
+/* Dark navy theme with neon green accents */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* Navy color palette */
+    --navy-dark: 222 47% 7%;
+    --navy: 222 47% 11%;
+    --navy-light: 222 41% 15%;
+    --navy-lighter: 222 35% 22%;
+    
+    /* Slate text colors */
+    --slate-dark: 215 19% 35%;
+    --slate: 215 20% 55%;
+    --slate-light: 220 16% 76%;
+    --slate-lightest: 220 22% 90%;
+    --white: 225 27% 96%;
+    
+    /* Neon green accent */
+    --green: 166 100% 70%;
+    --green-tint: 166 100% 70% / 0.1;
+    
+    /* Semantic tokens */
+    --background: var(--navy-dark);
+    --foreground: var(--slate);
+    
+    --card: var(--navy-light);
+    --card-foreground: var(--slate-light);
+    
+    --popover: var(--navy);
+    --popover-foreground: var(--slate-light);
+    
+    --primary: var(--green);
+    --primary-foreground: var(--navy-dark);
+    
+    --secondary: var(--navy-light);
+    --secondary-foreground: var(--slate-light);
+    
+    --muted: var(--navy-lighter);
+    --muted-foreground: var(--slate);
+    
+    --accent: var(--green);
+    --accent-foreground: var(--navy-dark);
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --border: var(--navy-lighter);
+    --input: var(--navy-lighter);
+    --ring: var(--green);
+    
+    --radius: 0.25rem;
+    
+    /* Heading colors */
+    --heading: var(--slate-lightest);
+    --heading-secondary: var(--slate-light);
+    
+    /* Shadows */
+    --shadow-card: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    
+    /* Transitions */
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
@@ -98,8 +73,203 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--navy-lighter)) hsl(var(--navy-dark));
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+  }
+  
+  ::selection {
+    background-color: hsl(var(--green-tint));
+    color: hsl(var(--slate-lightest));
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-heading font-semibold;
+    color: hsl(var(--heading));
+  }
+  
+  a {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer components {
+  /* Accent text styling */
+  .text-accent {
+    color: hsl(var(--green));
+  }
+  
+  /* Section heading with numbered prefix */
+  .section-heading {
+    @apply flex items-center gap-2 text-2xl md:text-3xl font-semibold mb-10;
+    color: hsl(var(--heading));
+  }
+  
+  .section-heading::before {
+    @apply text-accent font-mono text-xl md:text-2xl font-normal;
+    content: attr(data-num);
+  }
+  
+  .section-heading::after {
+    @apply h-px bg-navy-lighter flex-grow ml-4 max-w-xs;
+    content: '';
+    background-color: hsl(var(--navy-lighter));
+  }
+  
+  /* Link with underline animation */
+  .link-underline {
+    @apply relative inline-block text-accent;
+  }
+  
+  .link-underline::after {
+    @apply absolute w-full h-px bottom-0 left-0 bg-current origin-right scale-x-0 transition-transform duration-300;
+    content: '';
+  }
+  
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+  }
+  
+  /* Mono font for code/numbers */
+  .font-mono {
+    font-family: 'Fira Code', 'SF Mono', 'Fira Mono', monospace;
+  }
+  
+  /* Big heading styles */
+  .big-heading {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight;
+    color: hsl(var(--heading));
+  }
+  
+  .medium-heading {
+    @apply text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight;
+    color: hsl(var(--heading-secondary));
+  }
+  
+  /* Paragraph with slate color */
+  .paragraph {
+    color: hsl(var(--slate));
+    @apply text-lg leading-relaxed;
+  }
+  
+  /* Tab button styling */
+  .tab-button {
+    @apply relative px-5 py-3 text-left font-mono text-sm transition-all duration-300 border-l-2;
+    border-color: hsl(var(--navy-lighter));
+    color: hsl(var(--slate));
+  }
+  
+  .tab-button:hover {
+    background-color: hsl(var(--green-tint));
+    color: hsl(var(--green));
+  }
+  
+  .tab-button.active {
+    border-color: hsl(var(--green));
+    color: hsl(var(--green));
+    background-color: hsl(var(--green-tint));
+  }
+  
+  /* Skill tag */
+  .skill-tag {
+    @apply px-3 py-1 rounded text-sm font-mono;
+    background-color: hsl(var(--green-tint));
+    color: hsl(var(--green));
+  }
+  
+  /* Social icon */
+  .social-icon {
+    @apply w-5 h-5 transition-all duration-300;
+    color: hsl(var(--slate-light));
+  }
+  
+  .social-icon:hover {
+    color: hsl(var(--green));
+    transform: translateY(-3px);
+  }
+}
+
+@layer utilities {
+  .bg-navy-dark {
+    background-color: hsl(var(--navy-dark));
+  }
+  
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+  
+  .bg-navy-light {
+    background-color: hsl(var(--navy-light));
+  }
+  
+  .bg-navy-lighter {
+    background-color: hsl(var(--navy-lighter));
+  }
+  
+  .text-slate {
+    color: hsl(var(--slate));
+  }
+  
+  .text-slate-light {
+    color: hsl(var(--slate-light));
+  }
+  
+  .text-heading {
+    color: hsl(var(--heading));
+  }
+  
+  .border-navy-lighter {
+    border-color: hsl(var(--navy-lighter));
+  }
+  
+  /* Animation classes */
+  .fade-up {
+    animation: fadeUp 0.5s ease forwards;
+    opacity: 0;
+  }
+  
+  .fade-up-delay-1 { animation-delay: 100ms; }
+  .fade-up-delay-2 { animation-delay: 200ms; }
+  .fade-up-delay-3 { animation-delay: 300ms; }
+  .fade-up-delay-4 { animation-delay: 400ms; }
+  .fade-up-delay-5 { animation-delay: 500ms; }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
   }
 }

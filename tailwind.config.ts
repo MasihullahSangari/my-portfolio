@@ -47,16 +47,28 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        // Custom portfolio colors
+        navy: {
+          dark: "hsl(var(--navy-dark))",
+          DEFAULT: "hsl(var(--navy))",
+          light: "hsl(var(--navy-light))",
+          lighter: "hsl(var(--navy-lighter))",
         },
+        slate: {
+          dark: "hsl(var(--slate-dark))",
+          DEFAULT: "hsl(var(--slate))",
+          light: "hsl(var(--slate-light))",
+          lightest: "hsl(var(--slate-lightest))",
+        },
+        green: {
+          DEFAULT: "hsl(var(--green))",
+          tint: "hsl(var(--green-tint))",
+        },
+        heading: "hsl(var(--heading))",
+      },
+      fontFamily: {
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["Fira Code", "SF Mono", "Fira Mono", "monospace"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +77,31 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fadeUp 0.5s ease forwards",
+        "fade-in": "fadeIn 0.3s ease forwards",
+      },
+      boxShadow: {
+        card: "0 10px 30px -15px rgba(2, 12, 27, 0.7)",
+        "card-hover": "0 20px 30px -15px rgba(2, 12, 27, 0.7)",
       },
     },
   },
