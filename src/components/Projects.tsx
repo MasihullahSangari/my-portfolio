@@ -1,4 +1,11 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import latton1 from '@/assets/latton-1.png';
+import latton2 from '@/assets/latton-2.png';
+import latton3 from '@/assets/latton-3.png';
+import latton4 from '@/assets/latton-4.png';
+
+const projectImages = [latton1, latton2, latton3, latton4];
 
 const projects = [
   {
@@ -12,6 +19,8 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
     <section id="projects" className="py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-4xl mx-auto">
@@ -27,7 +36,7 @@ const Projects = () => {
                 index % 2 === 1 ? 'md:text-left' : ''
               }`}
             >
-              {/* Project Image */}
+              {/* Project Image Carousel */}
               <div
                 className={`md:col-span-7 relative group ${
                   index % 2 === 1 ? 'md:order-2' : ''
@@ -40,12 +49,38 @@ const Projects = () => {
                   className="block relative"
                 >
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-300 z-10 rounded" />
-                  <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-                    alt={project.title}
-                    className="w-full rounded grayscale group-hover:grayscale-0 transition-all duration-300"
-                  />
+                  <div className="relative overflow-hidden rounded">
+                    <div 
+                      className="flex transition-transform duration-500 ease-in-out"
+                      style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                    >
+                      {projectImages.map((img, imgIndex) => (
+                        <img
+                          key={imgIndex}
+                          src={img}
+                          alt={`${project.title} screenshot ${imgIndex + 1}`}
+                          className="w-full h-[280px] object-cover object-top flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-300"
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </a>
+                
+                {/* Carousel Dots */}
+                <div className="flex justify-center gap-2 mt-4">
+                  {projectImages.map((_, dotIndex) => (
+                    <button
+                      key={dotIndex}
+                      onClick={() => setCurrentSlide(dotIndex)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        currentSlide === dotIndex 
+                          ? 'bg-primary scale-110' 
+                          : 'bg-slate hover:bg-slate-light'
+                      }`}
+                      aria-label={`Go to slide ${dotIndex + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
 
               {/* Project Content */}
