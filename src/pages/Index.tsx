@@ -8,6 +8,7 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 
 const Index = () => {
   return (
@@ -17,12 +18,24 @@ const Index = () => {
       
       <main className="max-w-6xl mx-auto">
         <Hero />
-        <About />
-        <Experience />
-        <Education />
-        <Projects />
-        <Skills />
-        <Contact />
+        <ScrollReveal>
+          <About />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Experience />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Education />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Projects />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Skills />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Contact />
+        </ScrollReveal>
       </main>
       
       <Footer />
