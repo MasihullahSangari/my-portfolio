@@ -40,11 +40,11 @@ const SocialLinks = () => {
       {/* Right side - Email */}
       <div className="fixed right-6 lg:right-12 bottom-0 hidden md:flex flex-col items-center gap-6 after:content-[''] after:w-px after:h-24 after:bg-slate">
         <a
-          href="mailto:bilalsangar2003@gmail.com"
+          href="mailto:masihullahsangari0@gmail.com"
           className="font-mono text-xs text-slate-light hover:text-primary hover:-translate-y-1 transition-all duration-300 tracking-widest"
           style={{ writingMode: 'vertical-rl' }}
         >
-          bilalsangar2003@gmail.com
+          masihullahsangari0@gmail.com
         </a>
       </div>
     </>
