@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import latton1 from '@/assets/latton-1.png';
 import latton2 from '@/assets/latton-2.png';
 import latton3 from '@/assets/latton-3.png';
@@ -30,17 +31,23 @@ const Projects = () => {
 
         <div className="space-y-24">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.title}
               className={`relative grid md:grid-cols-12 gap-4 items-center ${
                 index % 2 === 1 ? 'md:text-left' : ''
               }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
               {/* Project Image Carousel */}
-              <div
+              <motion.div
                 className={`md:col-span-7 relative group ${
                   index % 2 === 1 ? 'md:order-2' : ''
                 }`}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
                 <a
                   href={project.liveUrl}
@@ -48,8 +55,12 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="block relative"
                 >
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-300 z-10 rounded" />
-                  <div className="relative overflow-hidden rounded">
+                  <motion.div 
+                    className="absolute inset-0 bg-primary/20 z-10 rounded"
+                    whileHover={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <div className="relative overflow-hidden rounded shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <div 
                       className="flex transition-transform duration-500 ease-in-out"
                       style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -81,30 +92,49 @@ const Projects = () => {
                     />
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Project Content */}
-              <div
+              <motion.div
                 className={`md:col-span-5 ${
                   index % 2 === 1 ? 'md:order-1 md:text-left' : 'md:text-right'
                 }`}
+                whileHover={{ x: index % 2 === 1 ? -5 : 5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
                 <p className="font-mono text-primary text-sm mb-2">Featured Project</p>
-                <h3 className="text-2xl font-bold text-slate-lightest mb-4">
+                <motion.h3 
+                  className="text-2xl font-bold text-slate-lightest mb-4"
+                  whileHover={{ color: 'hsl(var(--primary))' }}
+                  transition={{ duration: 0.2 }}
+                >
                   {project.title}
-                </h3>
-                <div className="bg-navy-light p-6 rounded shadow-xl mb-4 relative z-20">
+                </motion.h3>
+                <motion.div 
+                  className="bg-navy-light p-6 rounded shadow-xl mb-4 relative z-20"
+                  whileHover={{ 
+                    boxShadow: '0 20px 40px -15px rgba(100, 255, 218, 0.15)',
+                    y: -2
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
                   <p className="text-slate-light text-sm leading-relaxed">
                     {project.description}
                   </p>
-                </div>
+                </motion.div>
                 <ul
                   className={`flex flex-wrap gap-3 font-mono text-sm text-slate mb-4 ${
                     index % 2 === 1 ? '' : 'md:justify-end'
                   }`}
                 >
-                  {project.tech.map((t) => (
-                    <li key={t}>{t}</li>
+                  {project.tech.map((t, techIndex) => (
+                    <motion.li 
+                      key={t}
+                      whileHover={{ color: 'hsl(var(--primary))', y: -2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t}
+                    </motion.li>
                   ))}
                 </ul>
                 <div
@@ -113,19 +143,21 @@ const Projects = () => {
                   }`}
                 >
                   {project.liveUrl && (
-                    <a
+                    <motion.a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-lightest hover:text-primary transition-colors"
                       aria-label="View live site"
+                      whileHover={{ scale: 1.2, rotate: -5 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     >
                       <ExternalLink size={20} />
-                    </a>
+                    </motion.a>
                   )}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
