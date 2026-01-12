@@ -21,13 +21,28 @@ const projects = [
 
 const Projects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-scroll carousel every 3 seconds
+  // Auto-scroll carousel every 3 seconds (pauses on hover)
   useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % projectImages.length);
     }, 3000);
     return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        setCurrentSlide((prev) => (prev - 1 + projectImages.length) % projectImages.length);
+      } else if (e.key === 'ArrowRight') {
+        setCurrentSlide((prev) => (prev + 1) % projectImages.length);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
@@ -54,6 +69,8 @@ const Projects = () => {
                 className={`md:col-span-7 relative group ${
                   index % 2 === 1 ? 'md:order-2' : ''
                 }`}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
