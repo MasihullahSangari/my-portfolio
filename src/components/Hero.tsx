@@ -8,10 +8,10 @@ const Hero = () => {
           Hi, my name is
         </p>
         <h1 className="big-heading mb-3 fade-up fade-up-delay-2">
-          <TypeWriter text="Masihullah Sangari." delay={0.3} />
+          <TypeWriter text="Masihullah Sangari." delay={0.3} showCursor={false} />
         </h1>
         <h2 className="medium-heading text-slate mb-6 fade-up fade-up-delay-3">
-          <TypeWriter text="I build scalable web applications." delay={1.3} />
+          <TypeWriter text="I build scalable web applications." delay={1.3} showCursor={true} />
         </h2>
         <p className="paragraph max-w-xl mb-12 fade-up fade-up-delay-4">
           I'm a Full Stack Web Developer with 1+ year of hands-on experience in designing, 
